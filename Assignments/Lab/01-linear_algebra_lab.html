@@ -534,7 +534,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">sale_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(</span><span class="n">house_data</span><span class="p">,</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SalePrice&#39;</span><span class="p">])</span>
@@ -564,10 +564,13 @@ d) add the next column and proceed to b)</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">big_matrix</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">design_matrix</span><span class="p">)</span>
+
+
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">big_matrix</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -578,13 +581,12 @@ d) add the next column and proceed to b)</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3100042.0047933976</pre>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>15.5938021876
+3100042.00479
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -603,53 +605,39 @@ d) add the next column and proceed to b)</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">big_matrix</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython2"><pre><span></span> 
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
 
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansired">---------------------------------------------------------------------------</span>
-<span class="ansired">LinAlgError</span>                               Traceback (most recent call last)
-<span class="ansigreen">&lt;ipython-input-12-182e63930905&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
-<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>np<span class="ansiblue">.</span>linalg<span class="ansiblue">.</span>cond<span class="ansiblue">(</span>big_matrix<span class="ansiblue">[</span><span class="ansiblue">:</span><span class="ansiblue">,</span><span class="ansicyan">0</span><span class="ansiblue">]</span><span class="ansiblue">)</span><span class="ansiblue"></span>
-
-<span class="ansigreen">//anaconda/envs/gl-env/lib/python2.7/site-packages/numpy/linalg/linalg.pyc</span> in <span class="ansicyan">cond</span><span class="ansiblue">(x, p)</span>
-<span class="ansigreen">   1454</span>     x <span class="ansiblue">=</span> asarray<span class="ansiblue">(</span>x<span class="ansiblue">)</span>  <span class="ansired"># in case we have a matrix</span><span class="ansiblue"></span>
-<span class="ansigreen">   1455</span>     <span class="ansigreen">if</span> p <span class="ansigreen">is</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
-<span class="ansigreen">-&gt; 1456</span><span class="ansired">         </span>s <span class="ansiblue">=</span> svd<span class="ansiblue">(</span>x<span class="ansiblue">,</span> compute_uv<span class="ansiblue">=</span>False<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">   1457</span>         <span class="ansigreen">return</span> s<span class="ansiblue">[</span><span class="ansiblue">.</span><span class="ansiblue">.</span><span class="ansiblue">.</span><span class="ansiblue">,</span> <span class="ansicyan">0</span><span class="ansiblue">]</span><span class="ansiblue">/</span>s<span class="ansiblue">[</span><span class="ansiblue">.</span><span class="ansiblue">.</span><span class="ansiblue">.</span><span class="ansiblue">,</span> <span class="ansiblue">-</span><span class="ansicyan">1</span><span class="ansiblue">]</span><span class="ansiblue"></span>
-<span class="ansigreen">   1458</span>     <span class="ansigreen">else</span><span class="ansiblue">:</span><span class="ansiblue"></span>
-
-<span class="ansigreen">//anaconda/envs/gl-env/lib/python2.7/site-packages/numpy/linalg/linalg.pyc</span> in <span class="ansicyan">svd</span><span class="ansiblue">(a, full_matrices, compute_uv)</span>
-<span class="ansigreen">   1337</span>     a<span class="ansiblue">,</span> wrap <span class="ansiblue">=</span> _makearray<span class="ansiblue">(</span>a<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">   1338</span>     _assertNoEmpty2d<span class="ansiblue">(</span>a<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">-&gt; 1339</span><span class="ansired">     </span>_assertRankAtLeast2<span class="ansiblue">(</span>a<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">   1340</span>     t<span class="ansiblue">,</span> result_t <span class="ansiblue">=</span> _commonType<span class="ansiblue">(</span>a<span class="ansiblue">)</span><span class="ansiblue"></span>
-<span class="ansigreen">   1341</span> <span class="ansiblue"></span>
-
-<span class="ansigreen">//anaconda/envs/gl-env/lib/python2.7/site-packages/numpy/linalg/linalg.pyc</span> in <span class="ansicyan">_assertRankAtLeast2</span><span class="ansiblue">(*arrays)</span>
-<span class="ansigreen">    200</span>         <span class="ansigreen">if</span> len<span class="ansiblue">(</span>a<span class="ansiblue">.</span>shape<span class="ansiblue">)</span> <span class="ansiblue">&lt;</span> <span class="ansicyan">2</span><span class="ansiblue">:</span><span class="ansiblue"></span>
-<span class="ansigreen">    201</span>             raise LinAlgError(&apos;%d-dimensional array given. Array must be &apos;
-<span class="ansigreen">--&gt; 202</span><span class="ansired">                     &apos;at least two-dimensional&apos; % len(a.shape))
-</span><span class="ansigreen">    203</span> <span class="ansiblue"></span>
-<span class="ansigreen">    204</span> <span class="ansigreen">def</span> _assertSquareness<span class="ansiblue">(</span><span class="ansiblue">*</span>arrays<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
-
-<span class="ansired">LinAlgError</span>: 1-dimensional array given. Array must be at least two-dimensional</pre>
+</div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 
